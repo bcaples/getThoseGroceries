@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('index');
 });
+
+Route::post('/addLogin', ['uses' => '\App\Http\Controllers\LoginController@addLogin', 'as' => 'addLogin']);
+
+Route::post('/authLogin', ['uses' => '\App\Http\Controllers\LoginController@authLogin', 'as' => 'authLogin']);
