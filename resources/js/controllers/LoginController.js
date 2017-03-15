@@ -1,11 +1,13 @@
 //Define Angularjs Controller
-getThoseGroceries.controller('LoginController', ['$scope', '$http', '$cookies', '$location', function($scope, $http, $cookies, $location) {
+getThoseGroceries.controller('LoginController', ['$scope', '$http', '$cookies', '$cookieStore', '$location', function($scope, $http, $cookies, $cookieStore, $location) {
    
-    $scope.emailAddressCookie = $cookies.get('emailAddress');
-    
     $scope.initLogin = function() {
-        if ($scope.response.emailAddressCookie != "" && typeof $scope.response.emailAddressCookie != "undefined" && $scope.response.emailAddressCookie != null ) {
-    		$location.path('/groceryList');
+    	console.log('Init Login');
+    	$scope.emailAddressCookie = $cookieStore.get('emailAddress');
+        if ($scope.emailAddressCookie != "" && typeof $scope.emailAddressCookie != "undefined" && $scope.emailAddressCookie != null ) {
+        	$scope.userID = $cookieStore.get('userID');
+    		$location.path('/groceryList').search({param: $scope.userID});
+    		console.log('Init Login Logged You In: ', $scope.userID);
     	}
     };
     
@@ -19,6 +21,8 @@ getThoseGroceries.controller('LoginController', ['$scope', '$http', '$cookies', 
 			console.log("Auth Response: ", response);
 			console.log("User ID: ", $scope.response.userID);
 			if ($scope.response.userID != "" && typeof $scope.response.userID != "undefined" && $scope.response.userID != null) {
+				$cookieStore.put('emailAddress', $scope.emailAddress);
+            	$cookieStore.put('userID', $scope.response.userID);
 				$location.path('/groceryList');
 			}else {
 				$scope.addLogin();
@@ -38,8 +42,8 @@ getThoseGroceries.controller('LoginController', ['$scope', '$http', '$cookies', 
         	console.log("Save User: ", response);
         	console.log("User ID: ", $scope.response.userID);
             if ($scope.response.userID != "" && typeof $scope.response.userID != "undefined" && $scope.response.userID != null) {
-            	$cookies.put('emailAddress', $scope.emailAddress);
-            	$cookies.put('emailAddress', $scope.response.userID);
+            	$cookieStore.put('emailAddress', $scope.emailAddress);
+            	$cookieStore.put('userID', $scope.response.userID);
 				$location.path('/groceryList');
 			}else {
 				$('#loginSubmit').append('<h3 class="login_error" style="color: red;">Error Creating Login</h3>');
