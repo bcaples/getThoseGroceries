@@ -1,4 +1,5 @@
 //Define Angularjs Controller
-angular.module('getThoseGroceries').controller('GroceryListController', ['$scope', '$http', function($scope, $http) {
-	console.log("It Worked");
+getThoseGroceries.controller('GroceryListController', ['$scope', '$http', function($scope, $http) {
+	$scope.pageClass = 'home';
+    console.log('GroceryListController');
 }]);

@@ -1,0 +1,40 @@
+<div id="GroceryListItemsController" ng-controller="GroceryListItemsController">
+	<a href="#groceryList" class="btn btn-primary back-button">Back To List</a>
+	<h2 class="h2-responsive-item" align="center">Grocery List Items</h2>
+	<br>
+	<div class="md-form">
+	    <input type="text" id="list_name" class="form-control" placeholder="Item Name">
+	    <button type="button" class="btn btn-primary add-item">Add Item</button>
+	</div>
+	<br>
+	<br>
+	<br>
+	<div class="list-group">
+	  	<a class="list-group-item list-header">
+	  		<span class="item-header-name">Item Name</span>
+	  		<span class="item-header-status">Item Status</span>
+	  		<span class="item-header-purchasedate">Purchase Date</span>
+	  		<span class="item-header-removeitems">Remove Items</span>
+	  		<span class="item-header-edititems">Edit Item</span>
+	  	</a>
+	  	<a href="#groceryListItems"  class="list-group-item list-item">
+	  		<span class="item-name">Tom Thumb</span>
+	  		<span class="item-status">Not Purchased</span>
+	  		<span class="item-purchasedate">01/01/2017</span>
+	  		<span class="item-checkbox"><input type="checkbox" class="checkbox" id="remove_items_checkbox"></span>
+	  		<span><i class="fa fa-pencil fa-6 item-edit" aria-hidden="true"></i></span>
+	  	</a>
+	</div>
+	<br>
+	<div class="md-form">
+	    <button type="button" class="btn btn-primary add-button">Remove Item</button>
+	    <br>
+	    <input type="text" id="list_name" class="form-control" placeholder="Recipient Email Address">
+	    <button type="button" class="btn btn-primary email-list">Email List</button>
+	</div>
+	<script>
+		function backButton() {
+			window.history.back();
+		}
+	</script>
+</div>

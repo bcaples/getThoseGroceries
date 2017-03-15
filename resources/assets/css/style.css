@@ -1,0 +1,234 @@
+@font-face {
+    font-family: raceFont;
+    src: url("../fonts/hemi head bd it.ttf");
+}
+
+body {
+	background-color: #e6e6e6;
+}
+
+.header {
+	background-color: black;
+	box-shadow: 0 4px 2px -2px gray;
+	padding-top: 1.5%;
+}
+
+.h1-responsive {
+	font-family: raceFont;
+	padding-bottom: 2%;
+	color: gold;
+}
+
+.h2-responsive {
+	font-family: raceFont;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	color: black;
+	text-shadow: 1px 1px gray;
+}
+
+.h2-responsive-item {
+	font-family: raceFont;
+	color: black;
+	text-shadow: 1px 1px gray;
+	padding-top: .5%;
+	float: right;
+}
+
+.list-header {
+	font-family: raceFont;
+	background-color: black;
+	color: #e6e6e6;
+}
+
+.list-item {
+	font-family: raceFont;
+	background-color: #e6e6e6;
+	color: black;
+}
+
+.list-group-item:hover {
+	font-family: raceFont;
+	background-color: black;
+	color: #e6e6e6;
+}
+
+.list-header-name {
+	padding-left: 2%;
+	padding-right: 20%;
+}
+
+.list-header-datecreated {
+	padding-right: 14.5%;
+}
+
+.list-header-delete {
+	padding-right: 16%;
+}
+
+.list-header-tooltip {
+	
+}
+
+.list-name {
+	width: 30%;
+	padding-left: 2%;
+	padding-right: 2%;
+}
+
+.list-datecreated {
+	padding-right: 20%;
+}
+
+.list-delete {
+	padding-right: 28%;
+}
+
+.item-tooltip {
+	padding-right: 20%;
+}
+
+.item-header-name {
+	padding-left: 2%;
+	padding-right: 22%;
+}
+
+.item-header-status {
+	padding-right: 10%;
+}
+
+.item-header-purchasedate {
+	padding-right: 10%;
+}
+
+.item-header-removeitems {
+	padding-right: 12%;
+}
+
+.item-name {
+	width: 30%;
+	padding-left: 2%;
+	padding-right: 2%;
+}
+
+.item-status {
+	width: 20%;
+	padding-right: 5%;
+}
+
+.item-purchasedate {
+	padding-right: 18%;
+}
+
+.item-checkbox {
+	padding-right: 20%;
+}
+
+.list-group-item:hover .fa-chevron-right {
+	color: gold;
+}
+
+.list-group-item:hover .fa-pencil {
+	color: gold;
+}
+
+.fa-chevron-right {
+	color: green;
+}
+
+.fa-pencil {
+	color: green;
+}
+
+.fa-chevron-right:hover {
+	color: gold;
+}
+
+.fa-pencil:hover {
+	color: gold;
+}
+
+.add-button {
+	font-family: raceFont;
+	background-color: gold !important;
+	color: black !important;
+	float: right;
+}
+
+.add-button:hover  {
+	font-family: raceFont;
+	background-color: green !important;
+	color: #e6e6e6 !important;
+	border-radius: 0px !important;
+}
+
+.add-item {
+	font-family: raceFont;
+	background-color: gold !important;
+	color: black !important;
+	float: right;
+}
+
+.add-item:hover  {
+	font-family: raceFont;
+	background-color: green !important;
+	color: #e6e6e6 !important;
+	border-radius: 0px !important;
+}
+
+.email-list {
+	font-family: raceFont;
+	background-color: gold !important;
+	color: black !important;
+	float: right;
+}
+
+.email-list:hover  {
+	font-family: raceFont;
+	background-color: green !important;
+	color: #e6e6e6 !important;
+	border-radius: 0px !important;
+}
+
+.back-button {
+	font-family: raceFont;
+	background-color: gold !important;
+	color: black !important;
+	float: left;
+}
+
+.back-button:hover  {
+	font-family: raceFont;
+	background-color: green !important;
+	color: #e6e6e6 !important;
+	border-radius: 0px !important;
+}
+
+.list-name-lbl {
+	font-family: raceFont;
+	color: black !important;
+}
+
+#list_name {
+	border-bottom: 1px solid black;
+  	box-shadow: 0 1px 0 0 black;
+}
+
+input[type=text]:focus:not([readonly]),
+input[type=password]:focus:not([readonly]),
+input[type=email]:focus:not([readonly]),
+input[type=url]:focus:not([readonly]),
+input[type=time]:focus:not([readonly]),
+input[type=date]:focus:not([readonly]),
+input[type=datetime-local]:focus:not([readonly]),
+input[type=tel]:focus:not([readonly]),
+input[type=number]:focus:not([readonly]),
+input[type=search-md]:focus:not([readonly]),
+textarea.md-textarea:focus:not([readonly]) {
+	border-bottom: 1px solid green !important;
+	box-shadow: 0 1px 0 0 green !important;
+}
+
+
+
+

@@ -16,12 +16,14 @@ $.ajaxSetup({
 //Angularjs Routing
 getThoseGroceries.config(function($routeProvider, $locationProvider){
 	$routeProvider.when('/',{
-        templateUrl: '../resources/js/templates/groceryList.html',
-        controller: 'GetGroceryList'
+        templateUrl: '../resources/js/templates/login.html',
     })
 
-    .when('/search_display_models',{
+    .when('/groceryList',{
+        templateUrl:'../resources/js/templates/groceryList.html',
+    })
+
+    .when('/groceryListItems',{
         templateUrl:'../resources/js/templates/groceryListItems.html',
-        controller:'GetGroceryListItems'
     });
 });

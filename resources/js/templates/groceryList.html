@@ -1,3 +1,28 @@
 <div id="GroceryListController" ng-controller="GroceryListController">
-	<h2 class="md-display-1">Grocery List Controller</h2>
+	<h2 class="h2-responsive">Grocery List</h2>
+	<div class="md-form">
+	    <input type="text" id="list_name" class="form-control" placeholder="List Name">
+	    <button type="button" class="btn btn-primary add-button">Add List</button>
+	</div>
+	<br>
+	<br>
+	<br>
+	<div class="list-group">
+	  	<a class="list-group-item list-header">
+		  	<span class="list-header-name">List Name</span>
+		  	<span class="list-header-datecreated">Date Created</span>
+		  	<span class="list-header-delete">Delete List</span>
+		  	<span class="list-header-tooltip">Click List To Access Items</span>
+	  	</a>
+	  	<a href="#groceryListItems"  class="list-group-item list-item" data-toggle="tooltip" title="Click On List To Access List Items">
+	  		<span class="list-name">Tom Thumb</span>
+	  		<span class="list-datecreated">01/01/2017</span>
+	  		<span class="list-delete"><input type="checkbox" class="filled-in list-text-checkbox" id="checkbox2"></span>
+	  		<i class="fa fa-chevron-right fa-6 list-tooltip" aria-hidden="true"></i>
+	  	</a>
+	</div>
+	<br>
+	<div class="md-form">
+	    <button type="button" class="btn btn-primary add-button">Remove List</button>
+	</div>
 </div>
