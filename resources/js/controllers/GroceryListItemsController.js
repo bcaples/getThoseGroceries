@@ -114,4 +114,27 @@ getThoseGroceries.controller('GroceryListItemsController', ['$scope', '$http', '
         });
     };
 
+    $scope.printItems = function() {
+        var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+		mywindow.document.write('<html><head><title>Grocery List</title>');
+		mywindow.document.write('<style>.item-header-name{padding-right: 20px;}</style>');
+	    mywindow.document.write('</head><body>');
+	    mywindow.document.write($('.print-items').html());
+	    mywindow.document.write('</body></html>');
+		mywindow.print();
+	    mywindow.close();
+    };
+
+    $scope.emailItems = function() {
+    	$scope.emailHTML = $('.email-items').html();
+        $http({
+                method: 'POST',
+                data: {emailSend: $scope.emailSend, emailHTML: $scope.emailHTML},
+                url: '/getThoseGroceries/public/emailItems'
+        }).then(function successCallback(response) {
+        	console.log(response);
+        }, function errorCallback(response) {
+            console.log(response);
+        });
+    };
 }]);

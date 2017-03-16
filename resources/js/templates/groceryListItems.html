@@ -41,10 +41,26 @@
 	</div>
 	<br>
 	<div class="md-form">
-		<button type="button" class="btn btn-primary print-list">Print List</button>
+		<button type="button" class="btn btn-primary print-list" ng-click="printItems()">Print List</button>
 	    <button type="button" class="btn btn-primary add-button" ng-click="deleteItems()">Delete Item</button>
 	    <br>
-	    <input type="text" id="list_name" class="form-control" placeholder="Recipient Email Address">
-	    <button type="button" class="btn btn-primary email-list">Email List</button>
+	    <input type="text" id="email_send" class="form-control" placeholder="Recipient Email Address" ngmodel="emailSend">
+	    <button type="button" class="btn btn-primary email-list" ng-click="emailItems()">Email List</button>
+	</div>
+
+	<div class="hidden print-items email-items">
+		<h1 style="font-family: Arial; margin-left: 40px;">Get Those Groceries!</h1>
+	  	<table style="table-layout: fixed; font-family: Arial; border-spacing: 40px 10px;">
+  			<tr>
+  				<th align="left">Item Name</th>
+  				<th align="left">Item Status</th>
+  				<th align="left"r>Purchase Date</th>
+  			</tr>
+  			<tr ng-repeat="oneItem in items">
+  				<td align="left">{{oneItem.itemName}}</td>
+  				<td align="left">{{oneItem.itemStatus}}</td>
+  				<td align="left">{{oneItem.purchaseDate}}</td>
+  			</tr>
+  		</table>	
 	</div>
 </div>

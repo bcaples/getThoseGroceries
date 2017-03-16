@@ -39,4 +39,4 @@ Route::post('/editItem', ['uses' => '\App\Http\Controllers\GroceryListItemsContr
 
 Route::post('/deleteItems', ['uses' => '\App\Http\Controllers\GroceryListItemsController@deleteItems', 'as' => 'deleteItems']);
 
-Route::post('/emailLIstItems', ['uses' => '\App\Http\Controllers\GroceryListItemsController@emailLIstItems', 'as' => 'emailLIstItems']);
+Route::post('/emailItems', ['uses' => '\App\Http\Controllers\GroceryListItemsController@emailItems', 'as' => 'emailItems']);
