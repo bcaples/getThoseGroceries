@@ -32,7 +32,6 @@ body {
 	color: black;
 	text-shadow: 1px 1px gray;
 	padding-top: .5%;
-	float: right;
 }
 
 .list-header {
@@ -101,6 +100,11 @@ body {
 	padding-right: 12%;
 }
 
+.item-name-input {
+	border-bottom: 1px solid black !important;
+	box-shadow: 0 1px 0 0 black !important;
+}
+
 .item-name {
 	width: 30%;
 	padding-left: 2%;
@@ -113,11 +117,12 @@ body {
 }
 
 .item-purchasedate {
-	padding-right: 18%;
+	width: 20%;
+	margin-right: 5%;
 }
 
 .item-checkbox {
-	padding-right: 20%;
+	padding-right: 18%;
 }
 
 .list-group-item:hover .fa-chevron-right {
@@ -191,6 +196,8 @@ body {
 	background-color: gold !important;
 	color: black !important;
 	float: left;
+	margin-left: 2%;
+	border-radius: 0px !important;
 }
 
 .back-button:hover  {
@@ -236,20 +243,48 @@ body {
 	display: none;
 }
 
-.item-d-edit {
-	width: 40%;
+.edit-panel {
+	background-color: black;
+	color: #e6e6e6;
+}
+
+.item-name-edit {
+	margin-left: 2%;
+	width: 25%;
 }
 
 .item-status-edit {
-	margin-left: 20%;
+	margin-left: 14%;
 }
 
 .item-submit-edit {
-	margin-left: 20%;
+	margin-left: 26%;
 }
 
-.item-edit-input {
+.btn-group > .btn {
+	font-family: raceFont;
+	background-color: gold !important;
+	color: black !important;
+}
+
+.btn-group > .btn:hover  {
+	font-family: raceFont;
+	background-color: green !important;
+	color: #e6e6e6 !important;
+	border-radius: 0px !important;
+}
+
+.item-input-edit {
 	width: 100%;
+	font-family: raceFont;
+	border-bottom: 1px solid #e6e6e6 !important;
+	box-shadow: 0 1px 0 0 #e6e6e6 !important;
+	color: #e6e6e6 !important;
+}
+
+.checkbox {
+	position: relative;
+	z-index: 1000;
 }
 
 input[type=text]:focus:not([readonly]),

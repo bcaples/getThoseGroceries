@@ -27,6 +27,7 @@
 </head>
 <body ng-app="getThoseGroceries">
 	<div class="header">
+		<a href="#groceryList" class="btn btn-primary back-button hidden" onclick="$('.back-button').addClass('hidden');">Back To List</a>
 		<h1 class="h1-responsive" align="center">Get Those Groceries!</h1>
 	</div>
 	<div class="container view-slide-in" id="view" autoscroll="true" ng-view>

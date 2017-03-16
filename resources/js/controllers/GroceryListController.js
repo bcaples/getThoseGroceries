@@ -55,6 +55,10 @@ getThoseGroceries.controller('GroceryListController', ['$scope', '$http', '$cook
         });
     };
 
+    $scope.backButton = function() {
+    	$('.back-button').removeClass('hidden');
+    };
+
 }]);
 
 getThoseGroceries.factory('listData', function($http) { 

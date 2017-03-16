@@ -31,6 +31,59 @@ getThoseGroceries.controller('GroceryListItemsController', ['$scope', '$http', '
         });
     };
 
+    $scope.showEdit = function($id) {
+        $('.edit-panel').removeClass('hidden');
+        $scope.editPanel($id);
+    };
+
+    $scope.hideEdit = function() {
+        $('.edit-panel').addClass('hidden');
+    };
+
+    $scope.editPanel = function($id) {
+    	$scope.id = parseInt($id)
+        $http({
+                method: 'POST',
+                data: {itemID: $scope.id},
+                url: '/getThoseGroceries/public/editPanel'
+        }).then(function successCallback(response) {
+        	$scope.itemEdit = response.data.itemEdit;
+        	
+        	$('.item-input-edit').val($scope.itemEdit.itemName);
+        	console.log("dsfsdfds");
+        	if ($scope.itemEdit.itemName.itemStatus == 'purchased') {
+        		$("#purchased").attr('checked', 'checked');
+        		console.log("It Ran Checvke");
+        	}
+        }, function errorCallback(response) {
+            console.log(response);
+        });
+    };
+
+    $scope.editItem = function($id) {
+    	$scope.id = parseInt($id)
+    	console.log("dfdsfdfsdf", $scope.itemNameEdit);
+    	if ($('#purchased').is(':checked')) {
+    		$scope.itemStatusEdit = "purchased";
+    	}else {
+    		$scope.itemStatusEdit = "not_purchased";
+    	}
+
+        $http({
+                method: 'POST',
+                data: {itemID: $scope.id, itemNameEdit: $scope.itemNameEdit, itemStatusEdit: $scope.itemStatusEdit},
+                url: '/getThoseGroceries/public/editItem'
+        }).then(function successCallback(response) {
+        	console.log(response);
+        	$scope.response = response.data;
+        	$('#purchased').prop('checked',false);
+        	$('.edit-panel').addClass('hidden');
+			$scope.getItems();
+        }, function errorCallback(response) {
+            console.log(response);
+        });
+    };
+
     $scope.deleteItems = function() {
     	console.log("Delete Scope: ", $scope);
     	var deleteItems = [];

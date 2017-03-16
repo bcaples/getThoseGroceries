@@ -25,11 +25,48 @@ class GroceryListItemsController extends Controller
 				  		[
 				  		 'itemName' => \Input::get('itemName'),
 				  		 'listID' => \Input::get('listID'),
-				  		 'itemStatus' => "Not Purchased"
+				  		 'itemStatus' => "Not Purchased",
+				  		 'purchaseDate' => "0000-00-00"
 				  		]
 				  );
         
         $itemData = array('itemID' => $itemID);
+        
+        return \Response::json($itemData);
+    }
+
+    //Retrieve GroceryItem To Edit
+    public function editPanel()
+    {
+     	$itemEdit = \DB::table('groceryListItems')->where('id', \Input::get('itemID'))->first();
+        
+        $itemData = array('itemEdit' => $itemEdit, 'itemID' => \Input::get('itemID'));
+        
+        return \Response::json($itemData);
+    }
+
+    //Edit GroceryItems
+    public function editItem()
+    {
+    	$itemStatusEdit = "Not Purchased";
+    	$purchaseDate = "0000/00/00";
+
+    	if (\Input::get('itemStatusEdit') == "purchased") {
+    		$itemStatusEdit = "Purchased";
+    		$purchaseDate = date("Y-m-d H:i:s");
+    	}
+
+		$itemUpdated =  \DB::table('groceryListItems')
+							->where('id', \Input::get('itemID'))
+							->update(
+							  	[
+							  		'itemName' => \Input::get('itemNameEdit'),
+							  		'itemStatus' => $itemStatusEdit,
+							  		'purchaseDate' => $purchaseDate
+							  	]
+						); 
+
+        $itemData = array('itemUpdated' => $itemUpdated, 'itemID' =>\Input::get('itemID'));
         
         return \Response::json($itemData);
     }

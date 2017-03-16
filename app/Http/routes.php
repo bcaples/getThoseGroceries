@@ -33,7 +33,9 @@ Route::post('/getItems', ['uses' => '\App\Http\Controllers\GroceryListItemsContr
 
 Route::post('/addItem', ['uses' => '\App\Http\Controllers\GroceryListItemsController@addItem', 'as' => 'addItem']);
 
-Route::post('/editItems', ['uses' => '\App\Http\Controllers\GroceryListItemsController@editItems', 'as' => 'editItems']);
+Route::post('/editPanel', ['uses' => '\App\Http\Controllers\GroceryListItemsController@editPanel', 'as' => 'editPanel']);
+
+Route::post('/editItem', ['uses' => '\App\Http\Controllers\GroceryListItemsController@editItem', 'as' => 'editItem']);
 
 Route::post('/deleteItems', ['uses' => '\App\Http\Controllers\GroceryListItemsController@deleteItems', 'as' => 'deleteItems']);
 

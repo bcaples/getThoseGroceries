@@ -1,43 +1,40 @@
 <div id="GroceryListItemsController" ng-controller="GroceryListItemsController" ng-init="getItems()">
-	<a href="#groceryList" class="btn btn-primary back-button">Back To List</a>
-	<h2 class="h2-responsive-item" align="center">Grocery List Items</h2>
+	<h2 class="h2-responsive-item">Grocery List Items</h2>
 	<br>
 	<div class="md-form">
-	    <input type="text" id="item_name" class="form-control" placeholder="Item Name" ng-model="itemName">
+	    <input type="text" id="item_name" class="form-control item-name-input" placeholder="Item Name" ng-model="itemName">
 	    <button type="button" class="btn btn-primary add-item" ng-click="addItem()">Add Item</button>
 	</div>
 	<br>
 	<br>
 	<br>
 	<div class="list-group">
-	  	<a class="list-group-item list-header">
+	  	<div class="list-group-item list-header">
 	  		<span class="item-header-name">Item Name</span>
 	  		<span class="item-header-status">Item Status</span>
 	  		<span class="item-header-purchasedate">Purchase Date</span>
 	  		<span class="item-header-removeitems">Delete Items</span>
 	  		<span class="item-header-edititems">Edit Item</span>
-	  	</a>
-	  	<a class="list-group-item list-item" ng-repeat="oneItem in items">
+	  	</div>
+	  	<div class="list-group-item list-item" ng-repeat="oneItem in items">
 	  		<span class="item-name">{{oneItem.itemName}}</span>
 	  		<span class="item-status">{{oneItem.itemStatus}}</span>
-	  		<span class="item-purchasedate">0000/00/00</span>
+	  		<span class="item-purchasedate">{{oneItem.purchaseDate}}</span>
 	  		<span class="item-checkbox"><input type="checkbox" class="checkbox" id="{{'checkbox_' + oneItem.id}}"></span>
-	  		<span><i class="fa fa-pencil fa-6 item-edit" aria-hidden="true" ng-click="editItem()"></i></span>
-	  	</a>
-	  	<div class="list-group-item list-item no-hover edit-panel">
-	  		<span class="item-name-edit"><input type="text" class="form-control item-edit-input"></span>
+	  		<span><i class="fa fa-pencil fa-6 item-edit" aria-hidden="true" ng-click="showEdit(oneItem.id)"></i></span>
+	  	</div>
+	  	
+	  	<div class="list-group-item list-item no-hover edit-panel hidden">
+	  		<span class="item-name-edit"><input type="text" class="form-control item-input-edit" ng-model="itemNameEdit"></span>
 	  		<span class="item-status-edit">
-	  			<div class="radio">
-				  <label><input type="radio" name="optradio">Not Purchased</label>
-				</div>
 				<div class="radio">
-				  <label><input type="radio" name="optradio">Purchased</label>
+				  <label><input type="checkbox" class="checkbox" id="purchased">&nbsp;&nbsp;Purchased</label>
 				</div>
 	  		</span> 
 	  		<span class="item-submit-edit">
 				<div class="btn-group">
-				  <button type="button" class="btn btn-primary">Submit</button>
-				  <button type="button" class="btn btn-primary">Cancel</button>
+				  <button type="button" class="btn btn-primary item-submit-edit item-update-edit" ng-click="editItem(itemEdit.id)">Update</button>
+				  <button type="button" class="btn btn-primary item-submit-edit item-cancel-edit" ng-click="hideEdit()">Cancel</button>
 				</div>
 			</span>
 		</div>
