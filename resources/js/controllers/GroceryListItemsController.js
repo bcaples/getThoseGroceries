@@ -66,8 +66,12 @@ getThoseGroceries.controller('GroceryListItemsController', ['$scope', '$http', '
     };
 
     $scope.editItem = function($id) {
+    	if ($scope.itemNameEdit == "" || typeof $scope.itemNameEdit == "undefined" || $scope.itemNameEdit == null) {
+    		return false;
+    	} 
+
     	$scope.id = parseInt($id)
-    	console.log("dfdsfdfsdf", $scope.itemNameEdit);
+
     	if ($('#purchased').is(':checked')) {
     		$scope.itemStatusEdit = "purchased";
     	}else {
