@@ -29,9 +29,9 @@ Route::post('/addList', ['uses' => '\App\Http\Controllers\GroceryListController@
 Route::post('/deleteList', ['uses' => '\App\Http\Controllers\GroceryListController@deleteList', 'as' => 'deleteList']);
 
 //GroceryListItems Routes
-Route::post('/addLogin', ['uses' => '\App\Http\Controllers\GroceryListItemsController@addItems', 'as' => 'getItems']);
+Route::post('/getItems', ['uses' => '\App\Http\Controllers\GroceryListItemsController@getItems', 'as' => 'getItems']);
 
-Route::post('/addLogin', ['uses' => '\App\Http\Controllers\GroceryListItemsController@addItems', 'as' => 'addItems']);
+Route::post('/addItem', ['uses' => '\App\Http\Controllers\GroceryListItemsController@addItem', 'as' => 'addItem']);
 
 Route::post('/editItems', ['uses' => '\App\Http\Controllers\GroceryListItemsController@editItems', 'as' => 'editItems']);
 

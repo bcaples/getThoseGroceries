@@ -34,12 +34,15 @@ class GroceryListController extends Controller
         return \Response::json($listData);
     }
 
-	//Add User
+	//Delete List
     public function deleteList()
     {
-        $deleteID = DB::table('groceryList')->where('listName', '=', 100)->delete(\Input::get('listName'));
+    	$deleteList = \Input::get('deleteList');
+    	foreach ($deleteList as $id) {
+    		\DB::table('groceryList')->where('id', '=', $id)->delete();
+    	}
         
-        $listData = array('deleteID' => $deleteID);
+        $listData = array('deleteID' => "Deleted");
 
         return \Response::json($listData);
 	}

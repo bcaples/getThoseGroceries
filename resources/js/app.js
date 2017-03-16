@@ -23,7 +23,7 @@ getThoseGroceries.config(function($routeProvider, $locationProvider){
         templateUrl:'../resources/js/templates/groceryList.html',
     })
 
-    .when('/groceryListItems',{
+    .when('/groceryListItems/:listID',{
         templateUrl:'../resources/js/templates/groceryListItems.html',
     });
 });

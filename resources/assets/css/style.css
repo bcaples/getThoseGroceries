@@ -47,7 +47,7 @@ body {
 	color: black;
 }
 
-.list-group-item:hover {
+.list-group-item:not(.no-hover):hover {
 	font-family: raceFont;
 	background-color: black;
 	color: #e6e6e6;
@@ -64,10 +64,6 @@ body {
 
 .list-header-delete {
 	padding-right: 16%;
-}
-
-.list-header-tooltip {
-	
 }
 
 .list-name {
@@ -212,6 +208,48 @@ body {
 #list_name {
 	border-bottom: 1px solid black;
   	box-shadow: 0 1px 0 0 black;
+}
+
+.print-list {
+	font-family: raceFont;
+	background-color: gold !important;
+	color: black !important;
+	float: left;
+}
+
+.print-list:hover  {
+	font-family: raceFont;
+	background-color: green !important;
+	color: #e6e6e6 !important;
+	border-radius: 0px !important;
+}
+
+.custom-select {
+	border-radius: 0px;
+	background-color: black;
+	color: #e6e6e6;
+	position: relative;
+	z-index: 1000;
+}
+
+.hidden {
+	display: none;
+}
+
+.item-d-edit {
+	width: 40%;
+}
+
+.item-status-edit {
+	margin-left: 20%;
+}
+
+.item-submit-edit {
+	margin-left: 20%;
+}
+
+.item-edit-input {
+	width: 100%;
 }
 
 input[type=text]:focus:not([readonly]),

@@ -1,18 +1,12 @@
 //Define Angularjs Controller
-getThoseGroceries.controller('GroceryListController', ['$scope', '$http', '$cookieStore', function($scope, $http, $cookieStore) {
+getThoseGroceries.controller('GroceryListController', ['$scope', '$http', '$cookieStore', 'listData', function($scope, $http, $cookieStore, listData) {
 	
 	$scope.getList = function() {
         $scope.userID = $cookieStore.get('userID');
-        $http({
-                method: 'POST',
-                data: {userID: $scope.userID},
-                url: '/getThoseGroceries/public/getList'
-        }).then(function successCallback(response) {
-        	$scope.list = response.data.list;
-			console.log("Get List: ", $scope.list);
-        }, function errorCallback(response) {
-            console.log(response);
-        });
+        listData.getList($scope.userID, function(result) {
+        	console.log("Get List Result", result);
+		    $scope.list = result.list;
+		});
     };
     
     $scope.addList = function() {
@@ -23,31 +17,54 @@ getThoseGroceries.controller('GroceryListController', ['$scope', '$http', '$cook
                 url: '/getThoseGroceries/public/addList'
         }).then(function successCallback(response) {
         	$scope.response = response.data;
+        	$('#list_name').val('');
 			console.log("Auth Response: ", response);
+			$scope.getList();
         }, function errorCallback(response) {
             console.log(response);
         });
     };
 
     $scope.deleteList = function() {
+    	console.log("Delete Scope: ", $scope);
+    	var deleteList = [];
+    	
+    	$.each($scope.list, function( key, value ) {
+		  	console.log(key + ": " + value);
+		  	$.each(value, function(key, value) {
+			  	console.log(key + ": " + value);
+			  	if (key == 'id') {
+			  		console.log("Key Equals ID: ", key);
+			  		if ($('#checkbox_' + value).is(':checked')) {
+			  			console.log("Delete Item Checked: ", 'checkbox-' + value);
+			  			deleteList.push(value);
+			  		}
+				}
+			});
+		});
+        console.log("Delete List: ", deleteList);
         $http({
                 method: 'POST',
-                data: {emailAddress: $scope.emailAddress},
-                url: '/getThoseGroceries/public/addLogin'
+                data: {deleteList: deleteList},
+                url: '/getThoseGroceries/public/deleteList'
         }).then(function successCallback(response) {
         	$scope.response = response.data;
-        	console.log("Save User: ", response);
-        	console.log("User ID: ", $scope.response.userID);
-            if ($scope.response.userID != "" && typeof $scope.response.userID != "undefined" && $scope.response.userID != null) {
-            	$cookies.put('emailAddress', $scope.emailAddress);
-            	$cookies.put('emailAddress', $scope.response.userID);
-				$location.path('/groceryList');
-			}else {
-				$('#loginSubmit').append('<h3 class="login_error" style="color: red;">Error Creating Login</h3>');
-			}
+        	$scope.getList();
         }, function errorCallback(response) {
             console.log(response);
         });
     };
 
 }]);
+
+getThoseGroceries.factory('listData', function($http) { 
+	return{
+		getList: function(userID, response){
+		    $http({
+		            method: 'POST',
+		            data: {userID: userID},
+		            url: '/getThoseGroceries/public/getList'
+		    }).success(response);
+	    }
+	}
+});
