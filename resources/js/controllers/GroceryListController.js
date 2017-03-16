@@ -10,13 +10,19 @@ getThoseGroceries.controller('GroceryListController', ['$scope', '$http', '$cook
     };
     
     $scope.addList = function() {
+    	if ($scope.listName == "" || typeof $scope.listName == "undefined" || $scope.listName == null) {
+    		return false;
+    	}
+
     	$scope.userID = $cookieStore.get('userID');
+
         $http({
                 method: 'POST',
                 data: {listName: $scope.listName, userID: $scope.userID},
                 url: '/getThoseGroceries/public/addList'
         }).then(function successCallback(response) {
         	$scope.response = response.data;
+        	$scope.listName = "";
         	$('#list_name').val('');
 			console.log("Auth Response: ", response);
 			$scope.getList();

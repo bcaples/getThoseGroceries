@@ -1,7 +1,7 @@
 <div id="GroceryListController" ng-controller="GroceryListController" ng-init="getList()">
 	<h2 class="h2-responsive">Grocery List</h2>
 	<div class="md-form">
-	    <input type="text" id="list_name" class="form-control" placeholder="List Name" ng-model="listName">
+	    <input type="text" id="list_name" class="form-control" placeholder="List Name" ng-model="listName" required>
 	    <button type="button" class="btn btn-primary add-button" ng-click="addList()">Add List</button>
 	</div>
 	<br>

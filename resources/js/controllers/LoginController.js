@@ -4,7 +4,7 @@ getThoseGroceries.controller('LoginController', ['$scope', '$http', '$cookies', 
     $scope.initLogin = function() {
     	console.log('Init Login');
     	$scope.emailAddressCookie = $cookieStore.get('emailAddress');
-        if ($scope.emailAddressCookie != "" && typeof $scope.emailAddressCookie != "undefined" && $scope.emailAddressCookie != null ) {
+        if ($scope.emailAddressCookie != "" && typeof $scope.emailAddressCookie != "undefined" && $scope.emailAddressCookie != null) {
         	$scope.userID = $cookieStore.get('userID');
     		$location.path('/groceryList').search({param: $scope.userID});
     		console.log('Init Login Logged You In: ', $scope.userID);
@@ -12,6 +12,10 @@ getThoseGroceries.controller('LoginController', ['$scope', '$http', '$cookies', 
     };
     
     $scope.authLogin = function() {
+    	if ($scope.emailAddress == "" || typeof $scope.emailAddress == "undefined" || $scope.emailAddress == null) {
+    		return false;
+    	}
+
         $http({
                 method: 'POST',
                 data: {emailAddress: $scope.emailAddress},
@@ -52,4 +56,5 @@ getThoseGroceries.controller('LoginController', ['$scope', '$http', '$cookies', 
             console.log(response);
         });
     };
+
 }]);

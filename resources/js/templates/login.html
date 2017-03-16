@@ -1,7 +1,7 @@
 <div id="LoginController" ng-controller="LoginController" ng-init="initLogin()">
 	<h2 class="h2-responsive">Please Enter Email Address</h2>
-	<div class="md-form">
-	    <input type="text" id="emailAddress" class="form-control" placeholder="Email Address" ng-model="emailAddress">
+	<form class="md-form" name="loginDiv">
+	    <input type="email" id="emailAddress" class="form-control" placeholder="Email Address" name="emailAddress" ng-model="emailAddress" required>
 	    <a type="button" class="btn btn-primary add-button" ng-click="authLogin()" id="loginSubmit">Submit</a>
-	</div>
+	</form>
 </div>

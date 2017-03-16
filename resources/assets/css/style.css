@@ -217,6 +217,16 @@ body {
   	box-shadow: 0 1px 0 0 black;
 }
 
+#email_send {
+	border-bottom: 1px solid black;
+  	box-shadow: 0 1px 0 0 black;
+}
+
+#emailAddress {
+	border-bottom: 1px solid black;
+  	box-shadow: 0 1px 0 0 black;
+}
+
 .print-list {
 	font-family: raceFont;
 	background-color: gold !important;

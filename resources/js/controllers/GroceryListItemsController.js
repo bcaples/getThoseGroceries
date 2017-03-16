@@ -17,12 +17,17 @@ getThoseGroceries.controller('GroceryListItemsController', ['$scope', '$http', '
     };
     
     $scope.addItem = function() {
+    	if ($scope.itemName == "" || typeof $scope.itemName == "undefined" || $scope.itemName == null) {
+    		return false;
+    	}
+
         $http({
                 method: 'POST',
                 data: {itemName: $scope.itemName, listID: $scope.listID},
                 url: '/getThoseGroceries/public/addItem'
         }).then(function successCallback(response) {
         	$scope.response = response.data;
+        	$scope.itemName = "";
         	$('#item_name').val('');
 			console.log("Auth Response: ", response);
 			$scope.getItems();
