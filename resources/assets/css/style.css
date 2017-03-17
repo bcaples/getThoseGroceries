@@ -14,13 +14,13 @@ body {
 }
 
 .h1-responsive {
-	font-family: raceFont;
+	font-family: raceFont, Arial;
 	padding-bottom: 2%;
 	color: gold;
 }
 
 .h2-responsive {
-	font-family: raceFont;
+	font-family: raceFont, Arial;
 	padding-top: 20px;
 	padding-bottom: 20px;
 	color: black;
@@ -28,26 +28,26 @@ body {
 }
 
 .h2-responsive-item {
-	font-family: raceFont;
+	font-family: raceFont, Arial;
 	color: black;
 	text-shadow: 1px 1px gray;
 	padding-top: .5%;
 }
 
 .list-header {
-	font-family: raceFont;
+	font-family: raceFont, Arial;
 	background-color: black;
 	color: #e6e6e6;
 }
 
 .list-item {
-	font-family: raceFont;
+ 	font-family: raceFont, Arial;
 	background-color: #e6e6e6;
 	color: black;
 }
 
 .list-group-item:not(.no-hover):hover {
-	font-family: raceFont;
+	font-family: raceFont, Arial;
 	background-color: black;
 	color: #e6e6e6;
 }
@@ -150,49 +150,49 @@ body {
 }
 
 .add-button {
-	font-family: raceFont;
+	font-family: raceFont, Arial;
 	background-color: gold !important;
 	color: black !important;
 	float: right;
 }
 
 .add-button:hover  {
-	font-family: raceFont;
+	font-family: raceFont, Arial;
 	background-color: green !important;
 	color: #e6e6e6 !important;
 	border-radius: 0px !important;
 }
 
 .add-item {
-	font-family: raceFont;
+	font-family: raceFont, Arial;
 	background-color: gold !important;
 	color: black !important;
 	float: right;
 }
 
 .add-item:hover  {
-	font-family: raceFont;
+	font-family: raceFont, Arial;
 	background-color: green !important;
 	color: #e6e6e6 !important;
 	border-radius: 0px !important;
 }
 
 .email-list {
-	font-family: raceFont;
+	font-family: raceFont, Arial;
 	background-color: gold !important;
 	color: black !important;
 	float: right;
 }
 
 .email-list:hover  {
-	font-family: raceFont;
+	font-family: raceFont, Arial;
 	background-color: green !important;
 	color: #e6e6e6 !important;
 	border-radius: 0px !important;
 }
 
 .back-button {
-	font-family: raceFont;
+	font-family: raceFont, Arial;
 	background-color: gold !important;
 	color: black !important;
 	float: left;
@@ -201,14 +201,14 @@ body {
 }
 
 .back-button:hover  {
-	font-family: raceFont;
+	font-family: raceFont, Arial;
 	background-color: green !important;
 	color: #e6e6e6 !important;
 	border-radius: 0px !important;
 }
 
 .list-name-lbl {
-	font-family: raceFont;
+	font-family: raceFont, Arial;
 	color: black !important;
 }
 
@@ -228,14 +228,14 @@ body {
 }
 
 .print-list {
-	font-family: raceFont;
+	font-family: raceFont, Arial;
 	background-color: gold !important;
 	color: black !important;
 	float: left;
 }
 
 .print-list:hover  {
-	font-family: raceFont;
+	font-family: raceFont, Arial;
 	background-color: green !important;
 	color: #e6e6e6 !important;
 	border-radius: 0px !important;
@@ -272,14 +272,14 @@ body {
 }
 
 .btn-group > .btn {
-	font-family: raceFont;
+	font-family: raceFont, Arial;
 	background-color: gold !important;
 	color: black !important;
 	border-radius: 0px !important;
 }
 
 .btn-group > .btn:hover  {
-	font-family: raceFont;
+	font-family: raceFont, Arial;
 	background-color: green !important;
 	color: #e6e6e6 !important;
 	border-radius: 0px !important;
@@ -287,7 +287,7 @@ body {
 
 .item-input-edit {
 	width: 100%;
-	font-family: raceFont;
+	font-family: raceFont, Arial;
 	border-bottom: 1px solid #e6e6e6 !important;
 	box-shadow: 0 1px 0 0 #e6e6e6 !important;
 	color: #e6e6e6 !important;
@@ -335,7 +335,7 @@ textarea.md-textarea:focus:not([readonly]) {
 }
 
 span {
- font-family: raceFont;		
+ font-family: raceFont, Arial;		
 }
 
 

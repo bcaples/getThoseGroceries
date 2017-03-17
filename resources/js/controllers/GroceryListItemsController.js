@@ -10,7 +10,6 @@ getThoseGroceries.controller('GroceryListItemsController', ['$scope', '$http', '
                 url: '/getThoseGroceries/public/getItems'
         }).then(function successCallback(response) {
         	$scope.items = response.data.items;
-            console.log("lkdfkljdlkj: ", $scope.items);
         }, function errorCallback(response) {
             alert("Error Processing Data", $scope.items);
         });
