@@ -1,20 +1,26 @@
-//Define Angularjs Controller
-getThoseGroceries.controller('GroceryListController', ['$scope', '$http', '$cookieStore', 'listData', function($scope, $http, $cookieStore, listData) {
+//Define GroceryList Controller
+getThoseGroceries.controller('GroceryListController', ['$scope', '$http', '$cookieStore', function($scope, $http, $cookieStore) {
 	
-	$scope.getList = function() {
-        $scope.userID = $cookieStore.get('userID');
-        listData.getList($scope.userID, function(result) {
-        	console.log("Get List Result", result);
-		    $scope.list = result.list;
-		});
+    $scope.userID = $cookieStore.get('userID');
+
+	//Get List
+    $scope.getList = function() {
+        $http({
+                method: 'POST',
+                data: {userID: $scope.userID},
+                url: '/getThoseGroceries/public/getList'
+        }).then(function successCallback(response) {
+            $scope.list = response.data.list;
+        }, function errorCallback(response) {
+            alert("Error Processing Data");
+        });
     };
     
+    //Add list
     $scope.addList = function() {
     	if ($scope.listName == "" || typeof $scope.listName == "undefined" || $scope.listName == null) {
     		return false;
     	}
-
-    	$scope.userID = $cookieStore.get('userID');
 
         $http({
                 method: 'POST',
@@ -24,31 +30,26 @@ getThoseGroceries.controller('GroceryListController', ['$scope', '$http', '$cook
         	$scope.response = response.data;
         	$scope.listName = "";
         	$('#list_name').val('');
-			console.log("Auth Response: ", response);
 			$scope.getList();
         }, function errorCallback(response) {
-            console.log(response);
+            alert("Error Processing Data");
         });
     };
 
+    //Delete List
     $scope.deleteList = function() {
-    	console.log("Delete Scope: ", $scope);
     	var deleteList = [];
     	
     	$.each($scope.list, function( key, value ) {
-		  	console.log(key + ": " + value);
 		  	$.each(value, function(key, value) {
-			  	console.log(key + ": " + value);
 			  	if (key == 'id') {
-			  		console.log("Key Equals ID: ", key);
 			  		if ($('#checkbox_' + value).is(':checked')) {
-			  			console.log("Delete Item Checked: ", 'checkbox-' + value);
 			  			deleteList.push(value);
 			  		}
 				}
 			});
 		});
-        console.log("Delete List: ", deleteList);
+        
         $http({
                 method: 'POST',
                 data: {deleteList: deleteList},
@@ -57,24 +58,13 @@ getThoseGroceries.controller('GroceryListController', ['$scope', '$http', '$cook
         	$scope.response = response.data;
         	$scope.getList();
         }, function errorCallback(response) {
-            console.log(response);
+            alert("Error Processing Data");
         });
     };
 
+    //Show Back Button
     $scope.backButton = function() {
     	$('.back-button').removeClass('hidden');
     };
 
 }]);
-
-getThoseGroceries.factory('listData', function($http) { 
-	return{
-		getList: function(userID, response){
-		    $http({
-		            method: 'POST',
-		            data: {userID: userID},
-		            url: '/getThoseGroceries/public/getList'
-		    }).success(response);
-	    }
-	}
-});

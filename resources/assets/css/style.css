@@ -275,6 +275,7 @@ body {
 	font-family: raceFont;
 	background-color: gold !important;
 	color: black !important;
+	border-radius: 0px !important;
 }
 
 .btn-group > .btn:hover  {
@@ -297,6 +298,27 @@ body {
 	z-index: 1000;
 }
 
+.view-slide-in.ng-enter {
+  transition: all 1s ease;
+  -webkit-transition:all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  position: relative;
+  left: -400px;
+}
+
+.view-slide-in.ng-enter.ng-enter-active {
+  left: 0;
+}
+
+.view-slide-in.ng-leave.ng-leave-active{
+  right: -400px;
+}
+
+.view-slide-in.ng-leave{
+  right: 0px;
+}
+
 input[type=text]:focus:not([readonly]),
 input[type=password]:focus:not([readonly]),
 input[type=email]:focus:not([readonly]),
@@ -312,6 +334,9 @@ textarea.md-textarea:focus:not([readonly]) {
 	box-shadow: 0 1px 0 0 green !important;
 }
 
+span {
+ font-family: raceFont;		
+}
 
 
 

@@ -1,10 +1,12 @@
+<!-- Grocery List Item Partial -->
 <div id="GroceryListItemsController" ng-controller="GroceryListItemsController" ng-init="getItems()">
 	<h2 class="h2-responsive-item">Grocery List Items</h2>
 	<br>
-	<div class="md-form">
-	    <input type="text" id="item_name" class="form-control item-name-input" placeholder="Item Name" ng-model="itemName">
+	<form class="md-form" name="itemForm" id="itemForm">
+	    <input type="text" name="itemName" id="item_name" class="form-control item-name-input" placeholder="Item Name" ng-model="itemName" required>
+	    <span ng-show="itemForm.itemName.$dirty && itemForm.itemName.$error.required" style="color: red;">Item Name Is Required</span>
 	    <button type="button" class="btn btn-primary add-item" ng-click="addItem()">Add Item</button>
-	</div>
+	</form>
 	<br>
 	<br>
 	<br>
@@ -24,8 +26,8 @@
 	  		<span><i class="fa fa-pencil fa-6 item-edit" aria-hidden="true" ng-click="showEdit(oneItem.id)"></i></span>
 	  	</div>
 	  	
-	  	<div class="list-group-item list-item no-hover edit-panel hidden">
-	  		<span class="item-name-edit"><input type="text" class="form-control item-input-edit" ng-model="itemNameEdit"></span>
+	  	<form class="list-group-item list-item no-hover edit-panel hidden" name="editForm" id="editForm">
+	  		<span class="item-name-edit"><input type="text" class="form-control item-input-edit" ng-model="itemNameEdit" name="itemNameEdit" id="itemNameEdit" required></span>
 	  		<span class="item-status-edit">
 				<div class="radio">
 				  <label><input type="checkbox" class="checkbox" id="purchased">&nbsp;&nbsp;Purchased</label>
@@ -37,7 +39,8 @@
 				  <button type="button" class="btn btn-primary item-submit-edit item-cancel-edit" ng-click="hideEdit()">Cancel</button>
 				</div>
 			</span>
-		</div>
+			<span ng-show="editForm.itemNameEdit.$dirty && editForm.itemNameEdit.$error.required" style="color: red; margin: 2%;">Item Name Is Required</span>
+		</form>
 	</div>
 	<br>
 	<div class="md-form">
@@ -45,7 +48,7 @@
 	    <button type="button" class="btn btn-primary add-button" ng-click="deleteItems()">Delete Item</button>
 	    <br>
 	    <input type="text" id="email_send" class="form-control" placeholder="Recipient Email Address" ngmodel="emailSend">
-	    <button type="button" class="btn btn-primary email-list" ng-click="emailItems()">Email List</button>
+	    <button type="button" class="btn btn-primary email-list" ng-click="emailListItems()">Email List</button>
 	</div>
 
 	<div class="hidden print-items email-items">

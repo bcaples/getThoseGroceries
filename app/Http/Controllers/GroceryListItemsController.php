@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use Mailgun\Mailgun;
+//use Mailgun\Mailgun;
 
 class GroceryListItemsController extends Controller
 {
@@ -86,28 +86,19 @@ class GroceryListItemsController extends Controller
         return \Response::json($itemData);
 	}
 
-	//Print GroceryItems
-    public function printItems()
+    //Delete GroceryItems
+    /*public function emailListItems()
     {
-     	$items = \DB::table('groceryListItems')->where('listID', \Input::get('listID'))->get();
-        
-        $itemData = array('items' => $items);
-        
-        return \Response::json($itemData);
-    }
-
-    //Email GroceryItems
-    public function emailItems()
-    {
-     	$mg = new Mailgun("key-6dcff304040669f3e43de5b662c54554");
+        $mg = new Mailgun("key-6dcff304040669f3e43de5b662c54554");
         $domain = "sandbox66bb26a87f12481a844b6099f5ae1406.mailgun.org";
-        $mg->sendMessage($domain, array('from'    => 'Get Those Groceries! <support@gethosegroceries.com>',
-                                        'to'      => 'billycaples@gmail.com',
+        $mg->sendMessage($domain, array('from'    => 'Get Those Groceries! <support@getthosegroceries.com>',
+                                        'to'      => \Input::get('emailAddress'),
                                         'subject' => 'Get Those Groceries!',
-                                        'html'    => \Input::get('emailHTML')
+                                        'html'    => \Input::get('html')
                                         ));
         $result = $mg->get("$domain/log", array('limit' => 25, 'skip'  => 0));
         $httpResponseCodeEmail = $result->http_response_code;
-        return \Response::json(array('httpResponseCodeEmail' => $httpResponseCodeEmail));
-    }
+
+        return \Response::json(array('httpResponseCodeEmail' => $httpResponseCodeEmail, 'fromImage' => $fromImage, 'voterID' => $voterID));
+    }*/
 }

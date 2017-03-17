@@ -1,5 +1,5 @@
 //Define Angularjs Application
-var getThoseGroceries = angular.module('getThoseGroceries',['ngCookies']);
+var getThoseGroceries = angular.module('getThoseGroceries',['ngCookies', 'ngRoute', 'ngAnimate']);
 
 //Run Angularjs Application
 getThoseGroceries.run(function(){

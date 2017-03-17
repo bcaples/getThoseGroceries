@@ -1,9 +1,11 @@
+<!-- Grocery List Partial -->
 <div id="GroceryListController" ng-controller="GroceryListController" ng-init="getList()">
 	<h2 class="h2-responsive">Grocery List</h2>
-	<div class="md-form">
-	    <input type="text" id="list_name" class="form-control" placeholder="List Name" ng-model="listName" required>
+	<form class="md-form" name="listForm" id="listForm">
+	    <input type="text" id="list_name" class="form-control" placeholder="List Name" name="listName" ng-model="listName" required>
+	    <span ng-show="listForm.listName.$dirty && listForm.listName.$error.required" style="color: red;">List Name Is Required</span>
 	    <button type="button" class="btn btn-primary add-button" ng-click="addList()">Add List</button>
-	</div>
+	</form>
 	<br>
 	<br>
 	<br>

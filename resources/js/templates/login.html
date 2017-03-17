@@ -1,7 +1,10 @@
+<!-- Login Paritial -->
 <div id="LoginController" ng-controller="LoginController" ng-init="initLogin()">
 	<h2 class="h2-responsive">Please Enter Email Address</h2>
-	<form class="md-form" name="loginDiv">
+	<form class="md-form" name="loginForm" id="loginForm">
 	    <input type="email" id="emailAddress" class="form-control" placeholder="Email Address" name="emailAddress" ng-model="emailAddress" required>
-	    <a type="button" class="btn btn-primary add-button" ng-click="authLogin()" id="loginSubmit">Submit</a>
+	    <span ng-show="loginForm.emailAddress.$dirty && loginForm.emailAddress.$error.required" style="color: red;">Email Is Required</span>
+    	<span ng-show="loginForm.emailAddress.$dirty && loginForm.emailAddress.$error.email" style="color: red;">Not An Email</span>
+	    <a type="submit" class="btn btn-primary add-button" ng-click="authLogin()" id="loginSubmit" ng-disabled="loginForm.$invalid">Submit</a>
 	</form>
 </div>

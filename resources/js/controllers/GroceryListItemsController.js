@@ -2,20 +2,21 @@
 getThoseGroceries.controller('GroceryListItemsController', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
 	$scope.listID = $routeParams.listID;
 	
+    //Get Items
 	$scope.getItems = function() {
-        console.log("Get List ID: ", $scope.listID);
         $http({
                 method: 'POST',
                 data: {listID: $scope.listID},
                 url: '/getThoseGroceries/public/getItems'
         }).then(function successCallback(response) {
         	$scope.items = response.data.items;
-			console.log("Get List: ", $scope.items);
+            console.log("lkdfkljdlkj: ", $scope.items);
         }, function errorCallback(response) {
-            console.log(response);
+            alert("Error Processing Data", $scope.items);
         });
     };
     
+    //Add Items
     $scope.addItem = function() {
     	if ($scope.itemName == "" || typeof $scope.itemName == "undefined" || $scope.itemName == null) {
     		return false;
@@ -29,24 +30,27 @@ getThoseGroceries.controller('GroceryListItemsController', ['$scope', '$http', '
         	$scope.response = response.data;
         	$scope.itemName = "";
         	$('#item_name').val('');
-			console.log("Auth Response: ", response);
 			$scope.getItems();
         }, function errorCallback(response) {
-            console.log(response);
+            alert("Error Processing Data");
         });
     };
 
+    //Show Edit Panel
     $scope.showEdit = function($id) {
         $('.edit-panel').removeClass('hidden');
         $scope.editPanel($id);
     };
 
+    //Hide Edit Panel
     $scope.hideEdit = function() {
         $('.edit-panel').addClass('hidden');
     };
 
+    //Get Edit Panel Data
     $scope.editPanel = function($id) {
     	$scope.id = parseInt($id)
+        
         $http({
                 method: 'POST',
                 data: {itemID: $scope.id},
@@ -55,20 +59,27 @@ getThoseGroceries.controller('GroceryListItemsController', ['$scope', '$http', '
         	$scope.itemEdit = response.data.itemEdit;
         	
         	$('.item-input-edit').val($scope.itemEdit.itemName);
-        	console.log("dsfsdfds");
-        	if ($scope.itemEdit.itemName.itemStatus == 'purchased') {
-        		$("#purchased").attr('checked', 'checked');
-        		console.log("It Ran Checvke");
-        	}
+            $scope.itemNameValidate = $scope.itemEdit.itemName;
+        	if ($scope.itemEdit.itemStatus !== 'Not Purchased') {
+        		$("#purchased").prop('checked', true);
+                $scope.itemStatusValidate = 'purchased';
+        	}else {
+                $scope.itemStatusValidate = 'not_purchased';
+            }
         }, function errorCallback(response) {
-            console.log(response);
+            alert("Error Processing Data");
         });
     };
 
+    //Edit Item
     $scope.editItem = function($id) {
     	if ($scope.itemNameEdit == "" || typeof $scope.itemNameEdit == "undefined" || $scope.itemNameEdit == null) {
-    		return false;
-    	} 
+            if ($scope.itemStatusValidate == $scope.itemStatusEdit) {
+                return false;
+            }
+    	}
+        
+        $scope.itemNameEdit = $('.item-input-edit').val();
 
     	$scope.id = parseInt($id)
 
@@ -83,34 +94,30 @@ getThoseGroceries.controller('GroceryListItemsController', ['$scope', '$http', '
                 data: {itemID: $scope.id, itemNameEdit: $scope.itemNameEdit, itemStatusEdit: $scope.itemStatusEdit},
                 url: '/getThoseGroceries/public/editItem'
         }).then(function successCallback(response) {
-        	console.log(response);
         	$scope.response = response.data;
-        	$('#purchased').prop('checked',false);
-        	$('.edit-panel').addClass('hidden');
+            $('.item-input-edit').val('');
+        	$('#purchased').prop('checked', false);
+            $('.edit-panel').addClass('hidden');
 			$scope.getItems();
         }, function errorCallback(response) {
-            console.log(response);
+            alert("Error Processing Data");
         });
     };
 
+    //Delete Item
     $scope.deleteItems = function() {
-    	console.log("Delete Scope: ", $scope);
     	var deleteItems = [];
     	
     	$.each($scope.items, function( key, value ) {
-		  	console.log(key + ": " + value);
 		  	$.each(value, function(key, value) {
-			  	console.log(key + ": " + value);
 			  	if (key == 'id') {
-			  		console.log("Key Equals ID: ", key);
 			  		if ($('#checkbox_' + value).is(':checked')) {
-			  			console.log("Delete Item Checked: ", 'checkbox-' + value);
 			  			deleteItems.push(value);
 			  		}
 				}
 			});
 		});
-        console.log("Delete List: ", deleteItems);
+        
         $http({
                 method: 'POST',
                 data: {deleteItems: deleteItems},
@@ -119,10 +126,11 @@ getThoseGroceries.controller('GroceryListItemsController', ['$scope', '$http', '
         	$scope.response = response.data;
         	$scope.getItems();
         }, function errorCallback(response) {
-            console.log(response);
+            alert("Error Processing Data");
         });
     };
 
+    //Print Item
     $scope.printItems = function() {
         var mywindow = window.open('', 'PRINT', 'height=400,width=600');
 		mywindow.document.write('<html><head><title>Grocery List</title>');
@@ -134,16 +142,16 @@ getThoseGroceries.controller('GroceryListItemsController', ['$scope', '$http', '
 	    mywindow.close();
     };
 
-    $scope.emailItems = function() {
-    	$scope.emailHTML = $('.email-items').html();
+    //Email List
+    /*$scope.emailListItems = function() {
         $http({
                 method: 'POST',
-                data: {emailSend: $scope.emailSend, emailHTML: $scope.emailHTML},
-                url: '/getThoseGroceries/public/emailItems'
+                data: {emailAddress: $scope.emailAddess, $('.print-items').html()},
+                url: '/getThoseGroceries/public/emailListItems'
         }).then(function successCallback(response) {
-        	console.log(response);
+            $scope.response = response.data;
         }, function errorCallback(response) {
-            console.log(response);
+            alert("Error Processing Data");
         });
-    };
+    };*/
 }]);

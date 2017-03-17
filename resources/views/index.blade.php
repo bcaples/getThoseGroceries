@@ -1,3 +1,4 @@
+<!-- Default View -->
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -13,13 +14,15 @@
 
 	<!-- Script Tags -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.0/angular.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.0/angular-sanitize.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.0/angular-cookies.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-sanitize.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-cookies.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-route.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.1/js/mdb.min.js"></script>
+	<script type="text/javascript" src="http://smtpjs.com/smtp.js"></script>
 	<script src="../resources/js/app.js"></script>
 	<script src="../resources/js/controllers/GroceryListController.js"></script>
 	<script src="../resources/js/controllers/GroceryListItemsController.js"></script>
