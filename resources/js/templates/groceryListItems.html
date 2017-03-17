@@ -20,7 +20,7 @@
 	  	</div>
 	  	<div class="list-group-item list-item" ng-repeat="oneItem in items">
 	  		<span class="item-name">{{oneItem.itemName}}</span>
-	  		<span class="item-status">{{oneItem.itemStatus}}</span>
+	  		<span class="item-status">{{oneItem.itemStatus}}&nbsp;&nbsp;<i class="fa fa-check fa-6" aria-hidden="true" ng-show="oneItem.itemStatus=='Purchased'"></i></span>
 	  		<span class="item-purchasedate">{{oneItem.purchaseDate}}</span>
 	  		<span class="item-checkbox"><input type="checkbox" class="checkbox" id="{{'checkbox_' + oneItem.id}}"></span>
 	  		<span><i class="fa fa-pencil fa-6 item-edit" aria-hidden="true" ng-click="showEdit(oneItem.id)"></i></span>
