@@ -63,6 +63,7 @@ getThoseGroceries.controller('GroceryListItemsController', ['$scope', '$http', '
         		$("#purchased").prop('checked', true);
                 $scope.itemStatusValidate = 'purchased';
         	}else {
+                $("#purchased").prop('checked', false);
                 $scope.itemStatusValidate = 'not_purchased';
             }
         }, function errorCallback(response) {
@@ -142,8 +143,8 @@ getThoseGroceries.controller('GroceryListItemsController', ['$scope', '$http', '
     };
 
     //Email List
-    /*$scope.emailListItems = function() {
-        $http({
+    $scope.emailListItems = function() {
+        /*$http({
                 method: 'POST',
                 data: {emailAddress: $scope.emailAddess, $('.print-items').html()},
                 url: '/getThoseGroceries/public/emailListItems'
@@ -151,6 +152,8 @@ getThoseGroceries.controller('GroceryListItemsController', ['$scope', '$http', '
             $scope.response = response.data;
         }, function errorCallback(response) {
             alert("Error Processing Data");
-        });
-    };*/
+        });*/
+
+        alert("Error Sending Email Data");
+    };
 }]);
