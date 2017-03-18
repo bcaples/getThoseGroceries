@@ -81,7 +81,7 @@ getThoseGroceries.controller('GroceryListItemsController', ['$scope', '$http', '
         
         $scope.itemNameEdit = $('.item-input-edit').val();
 
-    	$scope.id = parseInt($id)
+    	$scope.id = parseInt($id);
 
     	if ($('#purchased').is(':checked')) {
     		$scope.itemStatusEdit = "purchased";
@@ -144,16 +144,17 @@ getThoseGroceries.controller('GroceryListItemsController', ['$scope', '$http', '
 
     //Email List
     $scope.emailListItems = function() {
-        /*$http({
+        $http({
                 method: 'POST',
-                data: {emailAddress: $scope.emailAddess, $('.print-items').html()},
+                data: {emailSend: $scope.emailSend, html: $('.print-items').html()},
                 url: '/getThoseGroceries/public/emailListItems'
         }).then(function successCallback(response) {
             $scope.response = response.data;
+            $('#email_send').val();
         }, function errorCallback(response) {
             alert("Error Processing Data");
-        });*/
+        });
 
-        alert("Error Sending Email Data");
+        //alert("Error Sending Email Data");
     };
 }]);

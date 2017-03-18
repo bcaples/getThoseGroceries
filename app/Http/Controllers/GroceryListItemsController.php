@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
+use App\Http\Controllers\Controller;
+use Mailgun\Mailgun;
 
-//use Mailgun\Mailgun;
+
 
 class GroceryListItemsController extends Controller
 {
@@ -87,18 +88,18 @@ class GroceryListItemsController extends Controller
 	}
 
     //Delete GroceryItems
-    /*public function emailListItems()
+    public function emailListItems()
     {
         $mg = new Mailgun("key-6dcff304040669f3e43de5b662c54554");
         $domain = "sandbox66bb26a87f12481a844b6099f5ae1406.mailgun.org";
         $mg->sendMessage($domain, array('from'    => 'Get Those Groceries! <support@getthosegroceries.com>',
-                                        'to'      => \Input::get('emailAddress'),
+                                        'to'      => \Input::get('emailSend'),
                                         'subject' => 'Get Those Groceries!',
                                         'html'    => \Input::get('html')
                                         ));
         $result = $mg->get("$domain/log", array('limit' => 25, 'skip'  => 0));
         $httpResponseCodeEmail = $result->http_response_code;
 
-        return \Response::json(array('httpResponseCodeEmail' => $httpResponseCodeEmail, 'fromImage' => $fromImage, 'voterID' => $voterID));
-    }*/
+        return \Response::json(array('httpResponseCodeEmail' => $httpResponseCodeEmail));
+    }
 }

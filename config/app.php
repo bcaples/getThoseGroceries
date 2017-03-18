@@ -147,6 +147,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Data33\LaravelMailgun\Providers\MailgunServiceProvider::class,
 
         /*
          * Application Service Providers...
