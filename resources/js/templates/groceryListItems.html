@@ -43,13 +43,14 @@
 		</form>
 	</div>
 	<br>
-	<div class="md-form">
+	<form class="md-form email-form" name="emailForm" id="emailForm">
 		<button type="button" class="btn btn-primary print-list" ng-click="printItems()">Print List</button>
 	    <button type="button" class="btn btn-primary add-button" ng-click="deleteItems()">Delete Item</button>
 	    <br>
-	    <input type="text" id="email_send" class="form-control" placeholder="Recipient Email Address" ng-model="emailSend">
+	    <input type="email" name="emailSend" id="emailSend" class="form-control" placeholder="Recipient Email Address" ng-model="emailSend" required>
+	    <span ng-show="emailForm.emailSend.$dirty && emailForm.emailSend.$error.email" style="color: red;">Not An Email</span>
 	    <button type="button" class="btn btn-primary email-list" ng-click="emailListItems()">Email List</button>
-	</div>
+	</form>
 
 	<div class="hidden print-items email-items">
 		<h1 style="font-family: Arial; margin-left: 40px;">Get Those Groceries!</h1>

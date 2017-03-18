@@ -150,7 +150,11 @@ getThoseGroceries.controller('GroceryListItemsController', ['$scope', '$http', '
                 url: '/getThoseGroceries/public/emailListItems'
         }).then(function successCallback(response) {
             $scope.response = response.data;
-            $('#email_send').val();
+            $('#emailSend').val('');
+            $('.email-list').before('<span class="emailSuccess" style="color: green;">Emailed List To '+ $scope.emailSend +'</span>');
+            setTimeout(function(){
+                $('.emailSuccess').remove();
+            }, 4000);
         }, function errorCallback(response) {
             alert("Error Processing Data");
         });
