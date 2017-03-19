@@ -11,7 +11,8 @@ getThoseGroceries.controller('GroceryListItemsController', ['$scope', '$http', '
         }).then(function successCallback(response) {
         	$scope.items = response.data.items;
         }, function errorCallback(response) {
-            alert("Error Processing Data", $scope.items);
+            location.reload();
+            console.log("Error Processing Data");
         });
     };
     
