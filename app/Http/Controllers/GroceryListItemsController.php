@@ -91,7 +91,7 @@ class GroceryListItemsController extends Controller
     public function emailListItems()
     {
         $mg = new Mailgun("key-6dcff304040669f3e43de5b662c54554");
-        $domain = "sandbox66bb26a87f12481a844b6099f5ae1406.mailgun.org";
+        $domain = "missfabulous.com";
         $mg->sendMessage($domain, array('from'    => 'Get Those Groceries! <support@getthosegroceries.com>',
                                         'to'      => \Input::get('emailSend'),
                                         'subject' => 'Get Those Groceries!',
